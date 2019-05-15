@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss']
 })
-
 export class BoardComponent implements OnInit {
   public squareArray: string[] = new Array(9).fill(SquareValues.Empty);
   public playerTurn = SquareValues.X;
@@ -16,11 +15,9 @@ export class BoardComponent implements OnInit {
   public draw = false;
   public winner = null;
 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   handleSquareClick(index: number) {
     // cannot make a move if there's a winner or a play in that square already
@@ -52,16 +49,23 @@ export class BoardComponent implements OnInit {
   isWinner(): boolean {
     let winningMove = false;
     const winningArrays = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8],
-      [0, 3, 6], [1, 4, 7], [2, 5, 8],
-      [0, 4, 8], [2, 4, 6],
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
     ];
 
     winningArrays.forEach((array: number[]) => {
-      if (this.squareArray[array[0]] && // checks to make sure they aren't all blanks
+      if (
+        this.squareArray[array[0]] && // checks to make sure they aren't all blanks
         // check for winning match
         this.squareArray[array[0]] === this.squareArray[array[1]] &&
-        this.squareArray[array[1]] === this.squareArray[array[2]]) {
+        this.squareArray[array[1]] === this.squareArray[array[2]]
+      ) {
         winningMove = true;
       }
     });
@@ -98,6 +102,4 @@ export class BoardComponent implements OnInit {
     this.winner = null;
     this.squareArray.fill(SquareValues.Empty);
   }
-
 }
-

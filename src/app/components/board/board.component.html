@@ -1,34 +1,28 @@
 <div class="col-12">
-  <div class="board row"
-    *ngFor="let row of [0,1,2]">
-    <div *ngFor="let col of [0,1,2]">
-      <app-square [value]="squareArray[col+row*3]"
-        (click)="handleSquareClick(col+row*3)">
+  <div class="board row" *ngFor="let row of [0, 1, 2]">
+    <div *ngFor="let col of [0, 1, 2]">
+      <app-square
+        [value]="squareArray[col + row * 3]"
+        (click)="handleSquareClick(col + row * 3)"
+      >
       </app-square>
     </div>
   </div>
   <div>
-    <li>
-      Turn: {{ playerTurn }}
-    </li>
-    <li>
-      Wins for X: {{ xScore }}
-    </li>
-    <li>
-      Wins for Y: {{ yScore }}
-    </li>
-    <li>
-      Draws: {{ drawScore }}
-    </li>
+    <li>Turn: {{ playerTurn }}</li>
+    <li>Wins for X: {{ xScore }}</li>
+    <li>Wins for Y: {{ yScore }}</li>
+    <li>Draws: {{ drawScore }}</li>
   </div>
-  <button mat-raised-button
-    color="warn"
-    (click)="handleReset()">
+  <button mat-raised-button color="warn" (click)="handleReset()">
     Reset
   </button>
-  <button mat-raised-button color="primary"
+  <button
+    mat-raised-button
+    color="primary"
     (click)="handleNewRound()"
-    [disabled]="!draw && !winner">
+    [disabled]="!draw && !winner"
+  >
     New Round
   </button>
 </div>
