@@ -22,6 +22,9 @@ import {
   MatExpansionModule,
   MatRadioModule
 } from '@angular/material';
+import { SquareComponent } from './components/square/square.component';
+import { BoardComponent } from './components/board/board.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 const Material = [
   MatToolbarModule,
@@ -45,10 +48,13 @@ const Material = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SquareComponent,
+    BoardComponent
   ],
   imports: [
     Material,
+    NgbModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule
